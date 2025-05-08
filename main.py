@@ -3,15 +3,21 @@ from modules.logo import logo
 
 logo()
 
-choice = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
+should_continue = True
+while should_continue:
+  choice = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
 
-if choice != "encode" and choice != "decode":
-  print("Invalid choice!")
-else:
-  message = input("Type your message:\n").lower()
-  shift = int(input("Type the shift number:\n"))
-  caesar(text = message, method = choice, shift = shift)
-
+  if choice != "encode" and choice != "decode":
+    print("Invalid choice!")
+  else:
+      message = input("Type your message:\n").lower()
+      shift = int(input("Type the shift number:\n"))
+      caesar(text = message, method = choice, shift = shift)
+      go_again = input("Type 'yes' if you want to go again. Otherwise type 'no'.\n")
+      if go_again == "no":
+        should_continue = False
+        print("Bye!")
+  
   # if choice == "encode":
   #   encrypt(message, shift)
   # else: 
