@@ -1,10 +1,11 @@
 from modules.caesar import caesar
 from modules.logo import logo
+import os
 
-logo()
 
 should_continue = True
 while should_continue:
+  logo()
   choice = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
 
   if choice != "encode" and choice != "decode":
@@ -14,6 +15,8 @@ while should_continue:
       shift_amount = int(input("Type the shift number:\n"))
       caesar(text = message, method = choice, shift = shift_amount)
       go_again = input("Would you like to go again? Type 'yes' to continue or 'no' to exit:\n").lower()
+      os.system("cls")
+
       if go_again == "no":
         should_continue = False
         print("Goodbye! Thanks for using the Caesar Cipher tool.")
