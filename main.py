@@ -11,13 +11,13 @@ while should_continue:
     print("Invalid choice!")
   else:
       message = input("Type your message:\n").lower()
-      shift = int(input("Type the shift number:\n"))
-      caesar(text = message, method = choice, shift = shift)
-      go_again = input("Type 'yes' if you want to go again. Otherwise type 'no'.\n")
+      shift_amount = int(input("Type the shift number:\n"))
+      caesar(text = message, method = choice, shift = shift_amount)
+      go_again = input("Would you like to go again? Type 'yes' to continue or 'no' to exit:\n").lower()
       if go_again == "no":
         should_continue = False
-        print("Bye!")
-  
+        print("Goodbye! Thanks for using the Caesar Cipher tool.")
+ 
   # if choice == "encode":
   #   encrypt(message, shift)
   # else: 
