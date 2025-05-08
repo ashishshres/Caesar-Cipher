@@ -1,32 +1,7 @@
-alphabets = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+from modules.caesar import caesar
+from modules.logo import logo
 
-def encrypt(plain_text, shift):
-  # print(message)
-  # print(shift)
-  cipher_text = ""
-  for char in plain_text:
-    curr_position = alphabets.index(char)
-    shift_position = curr_position + shift 
-    if shift_position >= 25:
-      shift_position = shift_position % 26 
-    # print(shift_position)
-    cipher_text += alphabets[shift_position]
-  print(f"The encoded text is {cipher_text}")
-
-# encrypt(message, shift)
-
-def decrypt(cipher_text, shift):
-  plain_text = ""
-  for char in cipher_text:
-    curr_position = alphabets.index(char)
-    shift_position = curr_position - shift 
-    if shift_position < 0:
-      shift_position = shift_position + 26 
-    # print(shift_position)
-    plain_text += alphabets[shift_position]
-  print(f"The decoded text is {plain_text}")
-
-# decrypt(message, shift)
+logo()
 
 choice = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
 
@@ -35,11 +10,12 @@ if choice != "encode" and choice != "decode":
 else:
   message = input("Type your message:\n").lower()
   shift = int(input("Type the shift number:\n"))
+  caesar(text = message, method = choice, shift = shift)
 
-  if choice == "encode":
-    encrypt(message, shift)
-  else: 
-    decrypt(message, shift)
+  # if choice == "encode":
+  #   encrypt(message, shift)
+  # else: 
+  #   decrypt(message, shift)
 
 # alternative
 # def encrypt(message, shift):
